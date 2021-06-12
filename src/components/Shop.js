@@ -9,7 +9,7 @@ const Shop = () => {
   }, []);
   const fetchItems = async () => {
     const { data } = await axios.get("https://fakestoreapi.com/products");
-    await setItems(data);
+    setItems(data);
     setIsLoaded(true);
     console.log(data);
   };

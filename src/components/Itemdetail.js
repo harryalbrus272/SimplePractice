@@ -5,7 +5,9 @@ const Itemdetail = ({ match }) => {
   const [item, setItem] = useState([]);
   const [isloaded, setIsLoaded] = useState(false);
   const fetchItems = async () => {
-    let { data } = await axios.get(`https://fakestoreapi.com/products/${match.params.id}`);
+    let { data } = await axios.get(
+      `https://fakestoreapi.com/products/${match.params.id}`
+    );
     setItem(data);
     setIsLoaded(true);
     console.log(data);
@@ -16,10 +18,16 @@ const Itemdetail = ({ match }) => {
   }, []);
   return (
     <div>
-      <h1>{item.title}</h1>
-      <p>{item.description}</p>
-      <img width="200" src={item.image} alt="shoppic" />
-      <h3>$ {item.price}</h3>
+      {isloaded ? (
+        <div>
+          <h1>{item.title}</h1>
+          <p>{item.description}</p>
+          <img width="200" src={item.image} alt="shoppic" />
+          <h3>$ {item.price}</h3>
+        </div>
+      ) : (
+        <h1>Loading.....</h1>
+      )}
     </div>
   );
 };

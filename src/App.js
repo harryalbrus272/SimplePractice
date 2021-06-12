@@ -1,12 +1,25 @@
 import { Nav, Box, About, Shop } from "./components";
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 function App() {
-  return <div className="App">
-    <Nav />
-    <Box />
-    <About />
-    <Shop />
-  </div>;
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Nav />
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/about" component={About}></Route>
+          <Route exact path="/box" component={Box}></Route>
+          <Route exact path="/shop" component={Shop}></Route>
+        </Switch>
+      </BrowserRouter>
+    </div>
+  );
 }
+
+const Home = () => (
+  <div>
+    <h2>Home Page</h2>
+  </div>
+);
 
 export default App;

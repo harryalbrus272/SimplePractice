@@ -15,7 +15,12 @@ const Shop = () => {
   };
   return (
     <div>
-      {isloaded && items.map((item) => <h5 key={item.id}><Link to={`/shop/${item.id}`}>{item.title}</Link></h5>)}
+      {isloaded &&
+        items.map((item) => (
+          <h5 key={item.id}>
+            <Link to={`/shop/${item.id}`}>{item.title}</Link>
+          </h5>
+        ))}
     </div>
   );
 };

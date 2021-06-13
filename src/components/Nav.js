@@ -8,7 +8,7 @@ const Nav = () => {
   };
   return (
     <nav>
-      <Link style={styleNav} to="/about">
+      <Link style={styleNav} to="/">
         <h2>Logo</h2>
       </Link>
       <ul className="nav-links">
